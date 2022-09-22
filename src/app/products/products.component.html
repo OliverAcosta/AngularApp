@@ -1,36 +1,69 @@
-<div class="container">
+<style scoped>
+    .scrollDiv {
+        height: 100vh;
+        overflow: auto;
+    }
+</style>
+<div class="container-fluid">
+
     <div class="row">
-        <div class="col-sm-8 col-md-8 col-lg-8 col-xlg-8">
-            
-            <div class="card col-md-12 col-lg-12">
-                <div class="card">
-                    div.col-md-4.col-lg-12
-                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-                    class="circle" width="48px" />
+        <div class="col-8 border border-dark">
+            <div class="col-12 scrollDiv">
+                <div class="d-flex flex-row flex-wrap">
+                    <app-product-thumbnail *ngFor="let thumbnail of thumbnails" [product]="thumbnail" class="m-2" (click)="Edit(thumbnail)"></app-product-thumbnail>
                 </div>
+                
             </div>
-            <div class="card col-md-12 col-lg-12"></div>
+            <!-- <div class="col-12"> -->
+                <!-- <div class="card"><img src="../assets/food.jpg" alt=""></div>
+                <div class="card"><img src="../assets/food.jpg" alt=""></div>
+                <div class="card"><img src="../assets/food.jpg" alt=""></div>
+                <div class="card"><img src="../assets/food.jpg" alt=""></div> -->
+
+            <!-- </div> -->
         </div>
-        <div class="col-md-4 col-lg-4 col-xlg-4">
+        <div class="col-4 border border-dark">
+            <div class="card">
+                <div class="alert alert-info">
+                    <strong>Info!</strong> {{info}} {{ date | date: 'dd MMM yyyy hh:mm:ss' }}
+                  </div>
+            </div>
             <div class="card p-2">
                 <div class="form-group">
+                    <label for="name">Id</label>
+                    <input type="text" name="id" id="id" class="form-control" [(ngModel)]="product.id" disabled />
+                </div>
+                <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" />
+                    <input type="text" name="name" id="name" class="form-control" [(ngModel)]="product.name" />
                 </div>
                 
                 <div class="form-group">
-                    <label for="name">Price</label>
-                    <input type="number" step="any" name="price" id="price" class="form-control" />
+                    <label for="price">Price</label>
+                    <input type="number" step="any" name="price" id="price" class="form-control" [(ngModel)]="product.price" />
                 </div>
                 <div class="form-group">
-                    <label for="name">Description</label>
-                    <textarea name="desc" id="desc" class="form-control" >
+                    <label for="dec">Description</label>
+                    <textarea name="desc" id="desc" class="form-control" [(ngModel)]="product.description" >
                     </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="file">Select a image</label>
+                    <input class="form-control" type="file" name="file" id="file"
+                            (change)="onChange($event)">
+                  
+                    <!-- <button (click)="onUpload()" 
+                        class="btn btn-success disabled form-control">
+                        Upload
+                    </button> -->
                 </div>
             </div>
 
             <div class="card p2">
-                <div class="mt-1 mb-1">
+                <!-- <div class="mt-1 mb-1">
+                    <app-file-upload [upload]="upload"></app-file-upload>
+                </div> -->
+                <!-- <div class="mt-1 mb-1">
                     <app-file-upload></app-file-upload>
                 </div>
                 <div class="mt-1 mb-1">
@@ -44,11 +77,18 @@
                 </div>
                 <div class="mt-1 mb-1">
                     <app-file-upload></app-file-upload>
-                </div>
-                <div class="mt-1 mb-1">
-                    <app-file-upload></app-file-upload>
-                </div>
+                </div> -->
+                
+                <!-- <div class="form-group">
+                    <button class="btn btn-warning col-12" (click)="Edit()">Edit</button>
+                </div> -->
+                
             </div>
+            <button class="btn btn-warning col-12 m-1" (click)="New()">New</button>
+            <button class="btn btn-primary col-6" (click)="Add()">Save</button>
+            <button class="btn btn-danger col-6" (click)="Delete()">Delete</button>
         </div>
     </div>
+
+  
 </div>

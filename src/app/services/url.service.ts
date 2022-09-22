@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UrlService {
-  public API_URL:string = "https://localhost:7169/api/";
-  public FILE_API:string = "https://localhost:7169/api/file/upload";
-
+  public PORT:number = 7169;
+  private URLBASE:string = "https://localhost:";
+  public API_URL:string = `${this.URLBASE}${this.PORT}/api/`;
+  public FILE_API:string = `${this.URLBASE}${this.PORT}/api/file/upload`;
+  public API_IMG:string = `${this.URLBASE}${this.PORT}/api/file/images/`;
 }

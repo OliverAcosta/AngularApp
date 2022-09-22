@@ -1,0 +1,40 @@
+
+<style scoped>
+
+    .card:hover{
+        background-color: orange;
+        color: white;
+        border-color: white;
+    }
+    .menu-item{
+        width: 400px;
+        max-width: 400px;
+
+    }
+    .middle {
+        min-width: 210px;
+    }
+    
+</style>
+
+<div class="card menu-item">
+    <div class="d-flex flex-row mb-3 p-2">
+         
+        <div class="p-2">
+            <img [src]=' url + product.imageUrl || "../assets/food.jpg"' width="96" height="96"
+            class="img-tumbnail rounded-circle" />
+        </div>
+        <div class="p-2 middle">
+            <h4 class="text-wrap">
+                {{product.name}}
+            </h4>
+            <span class="text">{{product.description}}</span>
+        </div>
+        <div class="p-2 m-1 d-flex justify-content-end">
+            <span class="text-right price"><b>${{product.price}}</b></span>
+        </div>
+
+      </div>
+</div>
+
+

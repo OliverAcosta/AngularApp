@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FileUploadService } from './file-upload.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { FileUploadService } from './file-upload.service';
 })
 export class FileUploadComponent implements OnInit {
 
+	@Input() upload:boolean = false;
+	
 	// Variable to store shortLink from api response
 	shortLink: string = "";
 	loading: boolean = false; // Flag variable
@@ -22,6 +24,10 @@ export class FileUploadComponent implements OnInit {
 	// On file Select
 	onChange(event:any) {
 		this.file = event.target.files[0];
+	    if(this.upload)
+		{
+			this.onUpload();
+		}
 	}
 
 	// OnClick of button Upload

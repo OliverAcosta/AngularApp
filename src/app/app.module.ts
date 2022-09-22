@@ -9,13 +9,15 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { UrlService } from './services/url.service';
+import { ProductThumbnailComponent } from './product-thumbnail/product-thumbnail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileUploadComponent,
     LoginComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductThumbnailComponent
   ],
   imports: [
     BrowserModule,

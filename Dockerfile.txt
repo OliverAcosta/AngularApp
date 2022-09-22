@@ -1,0 +1,3 @@
+FROM nginx:latest
+COPY /dist/elegant-restaurant-app /usr/share/nginx/html
+expose 8080
